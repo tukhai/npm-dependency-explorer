@@ -82,6 +82,10 @@ h2 {
   color: #ffffff; 
 }
 
+h1.not-found-main {
+  text-align: center;
+}
+
 @media only screen and (max-width: 767px) {
   .search-container {
     width: 100%;
