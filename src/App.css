@@ -1,33 +1,98 @@
 .App {
+  
+}
+
+/*************************/
+
+input {
+  padding: 10px;
+  width: 400px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.main-container {
+  width: 80%;
+  margin-left: 10%;
+}
+
+h2 {
   text-align: center;
+  margin-top: 50px;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.search-container {
+  float: left;
+  width: 80%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.main-search {
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 10px;
+  border: 1px solid #ddd;
+  background-color: #f1f1f1;
+  /* margin-bottom: 40px; */
 }
 
-.App-link {
-  color: #61dafb;
+.search-button {
+  height: 100%;
+  width: 20%;
+  background-color: DodgerBlue;
+  color: #fff;
+  cursor: pointer;
+  border: 1px solid transparent;
+  padding: 12px;
+  font-size: 16px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.auto-complete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  /* top: 100%;
+  left: 0;
+  right: 0; */
+  width: 64%;
+}
+
+.auto-complete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff; 
+  border-bottom: 1px solid #d4d4d4; 
+}
+
+/*when hovering an item:*/
+.auto-complete-items div:hover {
+  background-color: #e9e9e9; 
+}
+
+/*when navigating through the items using the arrow keys:*/
+.auto-complete-active {
+  background-color: DodgerBlue !important; 
+  color: #ffffff; 
+}
+
+@media only screen and (max-width: 767px) {
+  .search-container {
+    width: 100%;
+    margin-top: 20px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .auto-complete-items {
+    width: 80%;
+  }
+
+  .search-button {
+    width: 100%;
+    margin-top: 15px;
   }
 }
