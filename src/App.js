@@ -56,13 +56,16 @@ class App extends Component {
     this.setState({
       searchSuggestionPackagesData: []
     });
+
+    var finalSearchKeywords = this.state.searchKeywords || "";
+    this.props.history.push(`/package-overview/${finalSearchKeywords}`);
   }
 
   render() {
     return (
       <div className="App">
         <div className="main-container">
-          <h2>Dependency Explorer</h2>
+          <h2>DEPENDENCY EXPLORER</h2>
 
           <SearchPanel
             onOnChangeKeywords = {this.handleOnChangeKeywords}
