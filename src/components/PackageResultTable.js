@@ -9,7 +9,7 @@ class SearchPanel extends React.Component {
       return dependenciesData.map((i, index) => {
         return (
           <div key={index}>
-            <li><a>{i}</a></li>
+            <li><div>{i}</div></li>
           </div>
         );
       });

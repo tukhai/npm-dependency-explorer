@@ -52,7 +52,6 @@ class App extends Component {
   }
 
   handleSearchButtonClick() {
-    console.log("page level search button click", this.state.searchKeywords);
     this.setState({
       searchSuggestionPackagesData: []
     });

@@ -1,5 +1,5 @@
 .App {
-  
+  margin-bottom: 40px;
 }
 
 /*************************/
@@ -116,7 +116,7 @@ h4.back-to-home-page a:visited {
   margin: 0;
 }
 
-#myUL li a {
+#myUL li div {
   border: 1px solid #ddd;
   margin-top: -1px; /* Prevent double borders */
   background-color: #f6f6f6;
@@ -124,11 +124,39 @@ h4.back-to-home-page a:visited {
   text-decoration: none;
   font-size: 18px;
   color: black;
-  display: block
+  display: block;
+  cursor: pointer;
 }
 
-#myUL li a:hover:not(.header) {
+#myUL li div:hover:not(.header) {
   background-color: #eee;
+}
+
+#loading {
+  /* display: inline-block; */
+  animation: rotation 2s infinite linear;
+  float: left;
+}
+
+@keyframes rotation {
+  50% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.fetching-text {
+  margin: 2px 0 0 10px;
+  float: left;
+}
+
+.loading-icon-container {
+  height: 20px;
+}
+.clear-both {
+  clear: both;
 }
 
 /* CSS for not found page */
