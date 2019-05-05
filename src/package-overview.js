@@ -22,12 +22,14 @@ class PackageOverview extends React.Component {
 
       var fetchArr = [];
       urls.map(url => {
-        fetchArr.push(
-          fetch(PROXY_CORS_PREFIX + `https://npm-registry-proxy.glitch.me/${url}/latest`, 
-          {
-            method: 'GET'
-          })
-        );
+        if (url[0] !== "@") { // Skip the private package
+          fetchArr.push(
+            fetch(PROXY_CORS_PREFIX + `https://npm-registry-proxy.glitch.me/${url}/latest`, 
+            {
+              method: 'GET'
+            })
+          );
+        }
       });
 
       Promise.all(fetchArr)
@@ -84,6 +86,11 @@ class PackageOverview extends React.Component {
     var packageNameFromUrl = "react";
     if (this.props.location && this.props.location.pathname) {
       packageNameFromUrl = this.props.location.pathname.replace("/package-overview/", "");
+
+      if (packageNameFromUrl[0] === "@") {
+        alert("Unable to access the private package - Redirect to home page");
+        window.location.href = "/";
+      }
     }
     this.setState({packageName: packageNameFromUrl});
 
@@ -123,6 +130,7 @@ class PackageOverview extends React.Component {
     })
     .catch((error) => {
       console.error(error);
+      this.setState({isFetchingCompleted: true});
     });
   }
 

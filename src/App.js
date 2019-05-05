@@ -57,7 +57,12 @@ class App extends Component {
     });
 
     var finalSearchKeywords = this.state.searchKeywords || "";
-    this.props.history.push(`/package-overview/${finalSearchKeywords}`);
+    
+    if (finalSearchKeywords[0] !== "@") {
+      this.props.history.push(`/package-overview/${finalSearchKeywords}`);
+    } else {
+      alert("Unable to access the private package");
+    }
   }
 
   render() {
